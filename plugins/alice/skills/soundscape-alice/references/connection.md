@@ -2,9 +2,14 @@
 
 Use the ALICE MCP server provided by the installed plugin configuration. That MCP configuration is the source of truth for the transport type and server address; do not copy, infer, or override them from this Skill.
 
-Both Claude Code and Codex read the bearer token from the client process environment variable `SOUNDSCAPE_RISE_TOKEN`. Configure that variable with a Soundscape personal secret token before launching the client, then start a new client session so plugin and MCP configuration are reloaded.
+The bearer token is a Soundscape personal secret token:
 
-Never paste the token into a conversation, commit it, put it in plugin files, or include it in diagnostics. If the variable is absent, empty, expired, or unavailable to the client process, stop and ask the user to configure the environment securely outside the conversation.
+- Claude Code sends the value saved in the plugin's `soundscape_rise_token` option. Claude Code prompts for it when the plugin is enabled and stores it in the system's secure credential store; the user changes it with `/plugin configure alice`.
+- Codex reads it from the client process environment variable `SOUNDSCAPE_RISE_TOKEN`, which must be set before launching Codex.
+
+After configuring or changing the token, start a new client session so plugin and MCP configuration are reloaded.
+
+Never paste the token into a conversation, commit it, put it in plugin files, or include it in diagnostics. If the token is absent, empty, expired, or unavailable to the client, stop and ask the user to configure it securely outside the conversation.
 
 Connection authentication and tool authorization are separate boundaries:
 

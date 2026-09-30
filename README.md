@@ -20,21 +20,20 @@ Claude Code and Codex install the same `plugins/alice` package.
 
 ## MCP setup
 
-Before installing, set `SOUNDSCAPE_RISE_TOKEN` to a Soundscape personal secret token in the environment that launches Claude Code or Codex. Do not put the token in conversations, source code, or configuration files that may be committed.
+ALICE authenticates with a Soundscape personal secret token. Do not put the token in conversations, source code, or configuration files that may be committed.
+
+- **Claude Code**: when the plugin is enabled, Claude Code prompts for the token, masks the input, and stores it in the system's secure credential store. To change it later, run `/plugin configure alice`.
+- **Codex**: before launching Codex, set `SOUNDSCAPE_RISE_TOKEN` to the token in the environment that launches it.
 
 Start a new session after installing or updating the plugin so the client reloads the MCP server and skills. ALICE currently exposes three MCP tools: `me` returns profile details and accessible organizations; `tools` lists six analytics operations, searches their names and descriptions, or returns the input schema for an exact name; and `query` runs a selected analytics operation. When the operation name and arguments are known, call `query` directly.
 
 The `soundscape-alice` skill selects MCP tools as needed. The `help-me` skill consults only official public Soundscape documentation.
 
-### Launching macOS apps
+### Launching the ChatGPT app on macOS
 
-When using a local runtime through Claude or ChatGPT, fully quit the app with `Cmd+Q`, then set the token and launch it from Terminal. Replace `<token>` with your personal secret token, keeping the quotes:
+When using a local runtime through ChatGPT, fully quit the app with `Cmd+Q`, then set the token and launch it from Terminal. Replace `<token>` with your personal secret token, keeping the quotes:
 
 ```bash
-# Claude
-export SOUNDSCAPE_RISE_TOKEN='<token>' && open /Applications/Claude.app
-
-# ChatGPT
 export SOUNDSCAPE_RISE_TOKEN='<token>' && open /Applications/ChatGPT.app
 ```
 
@@ -44,7 +43,7 @@ These commands configure the local app environment. Web or remote execution envi
 
 ## Privacy
 
-ALICE is provided by KKFARM and connects to Soundscape's MCP service at `https://rise.soundscape.net/mcp`. A Soundscape personal secret token supplied through `SOUNDSCAPE_RISE_TOKEN` is sent to that service in the `Authorization` header to authenticate account, organization, and analytics requests.
+ALICE is provided by KKFARM and connects to Soundscape's MCP service at `https://rise.soundscape.net/mcp`. A Soundscape personal secret token, saved in the Claude Code plugin configuration or supplied through `SOUNDSCAPE_RISE_TOKEN` in Codex, is sent to that service in the `Authorization` header to authenticate account, organization, and analytics requests.
 
 [Privacy policy](https://soundscape.net/privacy-policy)
 

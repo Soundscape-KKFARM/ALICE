@@ -3,9 +3,7 @@
     "alice": {
       "type": "http",
       "url": "https://rise.soundscape.net/mcp",
-      "headers": {
-        "Authorization": "Bearer ${user_config.soundscape_rise_token}"
-      }
+      "bearer_token_env_var": "SOUNDSCAPE_RISE_TOKEN"
     }
   }
 }

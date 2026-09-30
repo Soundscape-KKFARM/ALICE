@@ -1,6 +1,6 @@
 {
   "name": "alice",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
   "author": {
     "name": "KKFARM"
@@ -19,7 +19,7 @@
     "zh-tw"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
+  "mcpServers": "./.codex-plugin/mcp.json",
   "interface": {
     "displayName": "ALICE",
     "composerIcon": "./assets/soundscape-icon.png",
