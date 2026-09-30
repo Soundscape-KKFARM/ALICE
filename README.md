@@ -16,6 +16,8 @@ codex plugin marketplace add Soundscape-KKFARM/ALICE
 codex plugin add alice@soundscape-net
 ```
 
+Claude Code and Codex install the same `plugins/alice` package.
+
 ## MCP setup
 
 Before installing, set `SOUNDSCAPE_RISE_TOKEN` to a Soundscape personal secret token in the environment that launches Claude Code or Codex. Do not put the token in conversations, source code, or configuration files that may be committed.

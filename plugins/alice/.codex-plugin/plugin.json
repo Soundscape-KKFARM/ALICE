@@ -1,6 +1,6 @@
 {
   "name": "alice",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
   "author": {
     "name": "KKFARM"
@@ -32,6 +32,7 @@
       "Read"
     ],
     "websiteURL": "https://github.com/Soundscape-KKFARM/ALICE",
+    "privacyPolicyURL": "https://soundscape.net/privacy-policy",
     "defaultPrompt": [
       "List the Soundscape organizations I can access.",
       "Show the latest real-time analytics summary for a specific organization.",

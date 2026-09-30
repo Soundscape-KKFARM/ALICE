@@ -3,7 +3,7 @@
   "displayName": "ALICE",
   "icon": "./assets/soundscape-icon.svg",
   "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "KKFARM"
   },
