@@ -1,0 +1,20 @@
+{
+  "name": "soundscape-net",
+  "interface": {
+    "displayName": "Soundscape"
+  },
+  "plugins": [
+    {
+      "name": "alice",
+      "source": {
+        "source": "local",
+        "path": "./plugins/alice"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

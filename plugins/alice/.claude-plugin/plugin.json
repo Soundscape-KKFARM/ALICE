@@ -1,0 +1,23 @@
+{
+  "name": "alice",
+  "displayName": "ALICE",
+  "icon": "./assets/soundscape-icon.svg",
+  "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
+  "version": "0.2.0",
+  "author": {
+    "name": "KKFARM"
+  },
+  "homepage": "https://github.com/Soundscape-KKFARM/ALICE",
+  "repository": "https://github.com/Soundscape-KKFARM/ALICE",
+  "license": "Apache-2.0",
+  "keywords": [
+    "soundscape",
+    "mcp",
+    "artist",
+    "creator",
+    "lifecycle",
+    "analytics",
+    "support",
+    "zh-tw"
+  ]
+}
