@@ -8,6 +8,7 @@
     "name": "KKFARM"
   },
   "homepage": "https://github.com/Soundscape-KKFARM/ALICE",
+  "privacyPolicyUrl": "https://soundscape.net/privacy-policy",
   "repository": "https://github.com/Soundscape-KKFARM/ALICE",
   "license": "Apache-2.0",
   "keywords": [
