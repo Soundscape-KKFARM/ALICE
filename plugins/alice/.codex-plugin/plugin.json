@@ -1,9 +1,9 @@
 {
   "name": "alice",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
   "author": {
-    "name": "KKFARM"
+    "name": "Soundscape-KKFARM"
   },
   "homepage": "https://github.com/Soundscape-KKFARM/ALICE",
   "repository": "https://github.com/Soundscape-KKFARM/ALICE",
@@ -21,12 +21,12 @@
   "skills": "./skills/",
   "mcpServers": "./.codex-plugin/mcp.json",
   "interface": {
-    "displayName": "ALICE",
+    "displayName": "ALICE by Soundscape",
     "composerIcon": "./assets/soundscape-icon.png",
     "logo": "./assets/soundscape-icon.png",
     "shortDescription": "A Soundscape assistant for creator account, organization, and analytics questions.",
     "longDescription": "ALICE currently offers account and organization lookup, real-time analytics queries, and guidance on public workflows.",
-    "developerName": "KKFARM",
+    "developerName": "Soundscape-KKFARM",
     "category": "Productivity",
     "capabilities": [
       "Read"

@@ -8,6 +8,10 @@
   "plugins": [
     {
       "name": "alice",
+      "displayName": "ALICE by Soundscape",
+      "author": {
+        "name": "Soundscape-KKFARM"
+      },
       "source": "./plugins/alice",
       "category": "productivity"
     }

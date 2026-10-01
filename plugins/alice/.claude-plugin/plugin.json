@@ -1,11 +1,11 @@
 {
   "name": "alice",
-  "displayName": "ALICE",
+  "displayName": "ALICE by Soundscape",
   "icon": "./assets/soundscape-icon.svg",
   "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": {
-    "name": "KKFARM"
+    "name": "Soundscape-KKFARM"
   },
   "homepage": "https://github.com/Soundscape-KKFARM/ALICE",
   "privacyPolicyUrl": "https://soundscape.net/privacy-policy",
