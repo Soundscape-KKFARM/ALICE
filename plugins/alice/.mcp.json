@@ -2,10 +2,7 @@
   "mcpServers": {
     "alice": {
       "type": "http",
-      "url": "https://rise.soundscape.net/mcp",
-      "headers": {
-        "Authorization": "Bearer ${user_config.soundscape_rise_token}"
-      }
+      "url": "https://rise.soundscape.net/mcp"
     }
   }
 }

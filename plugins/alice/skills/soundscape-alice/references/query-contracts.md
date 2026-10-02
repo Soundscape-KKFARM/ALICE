@@ -1,14 +1,15 @@
 # Query contracts
 
-## Public tools
+## Public tools and compatibility
 
 - `me` takes `{}` and returns the authenticated profile, `organizations_status`, and `organizations`. Successful organization discovery returns an unpaged array. Each item contains encrypted `id`, nullable `name`, `type`, `permission_type`, and `financial`. When organization access is denied or temporarily unavailable, the profile remains available and `organizations` is null.
 - `tools` takes optional `search`. Empty or whitespace-only search returns `{"names":[...]}` in name order. Keyword search is case-insensitive over names and descriptions and returns `{"tools":[{"name":"...","description":"..."}]}`; no match returns `{"tools":[]}`. An exact case-sensitive name takes precedence and returns `{"tool":{"name":"...","description":"...","input_schema":{...}}}`.
-- `query` takes `{"name":"analytics_name","arguments":{...}}`. Both fields are required. `name` must be one of the six names below, and `arguments` must be an object matching that analysis schema. Its result is the selected analysis tool's `content` and `structuredContent` directly, without another nested result.
+- Each `analytics_*` tool below is directly callable. Put its fields at the tool argument root, not inside a `name`/`arguments` wrapper.
+- `query` remains a compatibility entry point and takes `{"name":"analytics_name","arguments":{...}}`. Both fields are required. `name` must be one of the six names below, and `arguments` must be an object matching that analysis schema. Its result is the selected analysis tool's `content` and `structuredContent` directly, without another nested result.
 
-For a known analysis and known parameters, call `query` directly. If the schema is in doubt, inspect that exact name through `tools` before calling `query`.
+For a known analysis and known parameters, call its exposed `analytics_*` tool directly. If the schema is in doubt, inspect that exact name through `tools` first. Use `query` only when the connection lacks the direct tool.
 
-## Shared identifiers and dates for `query.arguments`
+## Shared identifiers and dates
 
 - `organization_id` is the encrypted value supplied by the user or returned in `me.organizations[].id`. Preserve it exactly.
 - Analytics dates are UTC strings in `YYYY-MM-DD` form.
@@ -18,7 +19,7 @@ For a known analysis and known parameters, call `query` directly. If the schema 
 
 ## Analysis names and arguments
 
-Every analysis below requires `arguments.organization_id`. The following fields go inside `arguments`, never beside `query.name`.
+Every analysis below requires `organization_id`. These fields are direct tool inputs. Only when using the compatibility `query` wrapper do they go inside `query.arguments`, never beside `query.name`.
 
 ### `analytics_platforms`
 
@@ -55,4 +56,4 @@ Every analysis below requires `arguments.organization_id`. The following fields 
 - Optional `ids` follows the same entity-target limits as `analytics_trend`.
 - Also accepts the shared `start`, `end`, and `codes` fields.
 
-All public tool inputs and analysis argument objects are closed. Do not pass undocumented fields.
+All public tool inputs and analysis argument objects are closed. Do not pass undocumented fields. When supplied, `codes`, `cards`, and `ids` must be nonempty arrays with unique entries.

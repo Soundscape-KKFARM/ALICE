@@ -3,7 +3,7 @@
   "displayName": "ALICE by Soundscape",
   "icon": "./assets/soundscape-icon.svg",
   "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": {
     "name": "Soundscape-KKFARM"
   },
@@ -22,13 +22,5 @@
     "analytics",
     "support",
     "zh-tw"
-  ],
-  "userConfig": {
-    "soundscape_rise_token": {
-      "type": "string",
-      "title": "Soundscape personal secret token",
-      "description": "Personal secret token used to authenticate ALICE MCP requests to rise.soundscape.net.",
-      "sensitive": true
-    }
-  }
+  ]
 }

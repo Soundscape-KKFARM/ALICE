@@ -2,8 +2,7 @@
   "mcpServers": {
     "alice": {
       "type": "http",
-      "url": "https://rise.soundscape.net/mcp",
-      "bearer_token_env_var": "SOUNDSCAPE_RISE_TOKEN"
+      "url": "https://rise.soundscape.net/mcp"
     }
   }
 }
