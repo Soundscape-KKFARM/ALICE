@@ -1,0 +1,19 @@
+{
+  "name": "soundscape-net",
+  "description": "Helps creators use Soundscape for information lookup, workflow guidance, and daily work.",
+  "owner": {
+    "name": "KKFARM",
+    "url": "https://github.com/Soundscape-KKFARM/ALICE"
+  },
+  "plugins": [
+    {
+      "name": "alice",
+      "displayName": "ALICE by Soundscape",
+      "author": {
+        "name": "Soundscape-KKFARM"
+      },
+      "source": "./plugins/alice",
+      "category": "productivity"
+    }
+  ]
+}

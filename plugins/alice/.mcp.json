@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "alice": {
+      "type": "http",
+      "url": "https://rise.soundscape.net/mcp"
+    }
+  }
+}
