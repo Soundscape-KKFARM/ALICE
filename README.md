@@ -6,21 +6,21 @@ English | [繁體中文](README.zh-TW.md)
 
 ALICE is Soundscape's open-source MCP package. It lets musicians use Soundscape's distribution and music operations capabilities inside the AI tools they already use:
 
-- **Release preparation**: works out what a release still needs and fills the gaps through conversation
-- **Release submission**: once the data is complete, the musician confirms and submits; every release still goes through Soundscape's standard review before delivery to platforms
-- **Distribution and marketing knowledge**: answers distribution and marketing questions based on Soundscape's official public documentation
-- **Platform performance data**: query and compare streaming data by song, platform, region, or period, with the data source and last update shown
+- **Release preparation**: create a release draft, upload audio and artwork, and use Soundscape's release check to find what's missing, then fill the gaps through conversation
+- **Release submission**: submit ready releases at your request; just like releases submitted through the member dashboard, every release is reviewed by Soundscape staff before it is delivered to platforms
+- **Distribution and marketing knowledge**: answers distribution and marketing questions based on the public articles in Soundscape's official help center
+- **Platform performance data**: query and compare streaming data by song, artist, platform, or period; availability varies by platform and period, and these analytics do not replace final royalty statements
 
-Royalty settlement features are scheduled to roll out from Q1 2027.
+Royalty settlement features are planned to roll out from Q1 2027.
 
 ## Who can use ALICE
 
-Access is by application. Soundscape members with a signed distribution agreement can apply and are activated after review:
+Access is by application. Soundscape members with a signed distribution agreement can apply. Learn more at [soundscape.net](https://soundscape.net/).
 
 ## Install (desktop apps)
 
-1. Open the ChatGPT or Claude desktop app
-2. Go to the plugin marketplace and search for "ALICE by Soundscape"
+1. Claude desktop app: search the plugin marketplace for "ALICE by Soundscape" and install it
+2. ChatGPT desktop app: search the plugin marketplace for "ALICE by Soundscape" and install it
 3. Sign in with your Soundscape account and approve access
 4. Restart the app or start a new chat, and you're ready to go
 
@@ -47,13 +47,13 @@ Add the remote MCP server `https://rise.soundscape.net/mcp` and sign in to your 
 
 ## Privacy
 
-ALICE is provided by Soundscape (KKFARM Co., Ltd.). After you approve access, your AI tool uses an OAuth access token to query your Soundscape account, release, and analytics data. Your conversations are processed by the AI service you choose and are subject to its data policy.
+ALICE is provided by Soundscape (KKFARM CO., LTD.). After you approve access, your AI tool uses OAuth to query your Soundscape account, release, and analytics data and perform supported changes you request within your permissions. Your conversations are processed by the AI service you choose and are subject to its data policy. Let your AI tool manage the access token; never paste it into a chat or a file.
 
 [Privacy Policy](https://soundscape.net/privacy-policy)
 
 ## What's open source
 
-This repository is open source under the Apache 2.0 license and contains the MCP plugin configuration and Skills (soundscape-alice, help-me). Distribution, analytics, and knowledge services run on Soundscape's cloud; this repository contains no customer data.
+This repository is open source under the Apache 2.0 license and contains the MCP plugin configuration and the Skill packages ([soundscape-alice](plugins/alice/skills/soundscape-alice/SKILL.md), [help-me](plugins/alice/skills/help-me/SKILL.md)). Soundscape provides distribution and analytics services; public workflow guidance comes from its official help center. This repository contains no customer data.
 
 ## License
 

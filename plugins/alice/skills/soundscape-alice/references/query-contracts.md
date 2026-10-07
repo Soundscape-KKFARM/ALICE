@@ -1,25 +1,22 @@
 # Query contracts
 
-## Public tools and compatibility
+## Analytics inputs
 
-- `me` takes `{}` and returns the authenticated profile, `organizations_status`, and `organizations`. Successful organization discovery returns an unpaged array. Each item contains encrypted `id`, nullable `name`, `type`, `permission_type`, and `financial`. When organization access is denied or temporarily unavailable, the profile remains available and `organizations` is null.
-- `tools` takes optional `search`. Empty or whitespace-only search returns `{"names":[...]}` in name order. Keyword search is case-insensitive over names and descriptions and returns `{"tools":[{"name":"...","description":"..."}]}`; no match returns `{"tools":[]}`. An exact case-sensitive name takes precedence and returns `{"tool":{"name":"...","description":"...","input_schema":{...}}}`.
-- Each `analytics_*` tool below is directly callable. Put its fields at the tool argument root, not inside a `name`/`arguments` wrapper.
-- `query` remains a compatibility entry point and takes `{"name":"analytics_name","arguments":{...}}`. Both fields are required. `name` must be one of the six names below, and `arguments` must be an object matching that analysis schema. Its result is the selected analysis tool's `content` and `structuredContent` directly, without another nested result.
+Call the exposed `analytics_*` tool directly with its fields at the argument root. Use its current client-provided schema; do not invent an argument wrapper, region filter, or other undocumented field.
 
-For a known analysis and known parameters, call its exposed `analytics_*` tool directly. If the schema is in doubt, inspect that exact name through `tools` first. Use `query` only when the connection lacks the direct tool.
+Use `organizations_list` for organization discovery. It is separate from the profile returned by `me`.
 
 ## Shared identifiers and dates
 
-- `organization_id` is the encrypted value supplied by the user or returned in `me.organizations[].id`. Preserve it exactly.
+- `organization_id` is the encrypted value supplied by the user or returned in `organizations_list.organizations[].id`. Preserve it exactly.
 - Analytics dates are UTC strings in `YYYY-MM-DD` form.
 - If `end` is omitted, the service uses the Asia/Taipei calendar date minus two days. If `start` is omitted, it uses six days before the resolved `end`, producing a seven-day inclusive period.
 - `start` must not be after `end`; the range is at most 366 days; `start` cannot be earlier than two years before the current Asia/Taipei date.
-- `codes` are case-sensitive, unique platform codes. At most four are accepted. When omitted, the service uses `SPO`, `ITM`, `youtubemusic`, and `KKB` in that order. Ordinary accounts can query only those four codes.
+- `codes` are case-sensitive, unique platform codes. At most four are accepted. When omitted, the service uses `SPO`, `ITM`, `youtubemusic`, and `KKB` in that order. Use `analytics_platforms` to resolve a requested platform and check which codes the account can query.
 
 ## Analysis names and arguments
 
-Every analysis below requires `organization_id`. These fields are direct tool inputs. Only when using the compatibility `query` wrapper do they go inside `query.arguments`, never beside `query.name`.
+Every analysis below requires `organization_id`. Use the direct tool input fields listed by the current connection.
 
 ### `analytics_platforms`
 

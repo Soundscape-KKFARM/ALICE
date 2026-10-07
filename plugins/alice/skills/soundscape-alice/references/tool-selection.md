@@ -1,11 +1,18 @@
 # Tool selection
 
-The updated ALICE connection exposes `me`, `tools`, `query`, and six directly callable `analytics_*` tools. The client may add a plugin and server namespace to their visible names. Prefer the direct analytics tools listed by the current connection.
+Use the ALICE tools and input schemas supplied by the current client. Visible names may include a plugin or server namespace. Call the selected tool directly; do not assume every connection exposes every operation listed here.
 
 | User intent | Public call | Required input |
 | --- | --- | --- |
-| Identify the authenticated account or find accessible organizations | `me` | `{}` |
-| Discover analytics names or inspect a schema | `tools` | optional `search` |
+| Read the authenticated profile | `me` | `{}` |
+| Change display name or locale | `me_update` | schema-defined `body` |
+| Find accessible organizations and projects | `organizations_list` | optional `offset`, `limit` |
+| Read projects and contract release policies | `projects_list`, `project_contract_get` | selected organization and schema-defined project or contract ID |
+| Find or manage artists and rights holders | `organization_artists_list`, `organization_artist_get`, `artists_search`, `organization_artist_add`, `organization_artist_update`, `recording_rights_holders_*` | selected organization and schema-defined IDs or `body` |
+| Prepare an album and its songs | `albums_list`, `album_get`, `album_create`, `album_draft_*`, `album_edit_start`, `album_song_*`, `album_songs_*`, `song_performer_*`, `song_contributor_*` | selected organization, entity IDs, and schema-defined inputs |
+| Check, submit, cancel, or track review and delivery | `album_release_*`, `song_release_check`, `album_takedown_*`, `album_request_histories_list`, `album_deliveries_list` | selected organization and album or song IDs |
+| Upload files or inspect media processing | exposed cover/avatar upload tools, `song_authorization_*`, `asset_upload_*`, `asset_multipart_upload_*`, `album_draft_assets_list` | selected target and schema-defined file or `body` |
+| Retrieve a pitching survey link | `pitching_plan_survey_get` | `organization_id` |
 | Discover allowed analytics platform codes | `analytics_platforms` | `organization_id` |
 | Read KPI cards | `analytics_summary` | `organization_id`, `target` |
 | Read daily series and totals | `analytics_trend` | `organization_id`, `target` |
@@ -15,13 +22,13 @@ The updated ALICE connection exposes `me`, `tools`, `query`, and six directly ca
 
 ## Minimal call sequence
 
-1. Use an encrypted organization ID already supplied or established in the conversation. Do not call `me` routinely when it is available.
-2. If the ID is missing, call `me` once. Only `organizations_status: "ok"` makes its `organizations` array usable. An empty array means no accessible active organizations. `permission_denied` or `temporarily_unavailable` with null does not mean an empty account.
-3. When the user gives an organization name, select only a unique exact match. If the name does not match, matches several entries, or relevant names are null, ask the user to choose with distinguishable name and encrypted ID. With no name, select a single organization; ask when several are plausible.
-4. If the analytics name and parameters are known, call that `analytics_*` tool directly. If the name is unknown, call `tools` with `{"search":"keyword"}` to get matching names and descriptions; use `{}` for a names-only catalog when no keyword exists. If the input schema is uncertain, call `tools` with an exact, case-sensitive name to receive `tool.input_schema`. A keyword match does not include the schema.
-5. When a usable platform code is missing, call `analytics_platforms` with the selected `organization_id`. Preserve returned codes exactly. The `tools` catalog cannot establish platform availability or account permission.
-6. Run the one requested analysis. Add another view only when the user requested it or the first result cannot answer the question.
+1. Reuse IDs already established for the intended organization and task. Do not call `me` for unrelated profile data or to discover organizations.
+2. If the organization is missing, call `organizations_list`. It returns `organizations`, `count`, `has_more`, and a next-page `offset` when more data exists. `count` describes one page. Follow the returned offset only as far as needed to resolve the request; a first page cannot prove the full list has one item or no matching name.
+3. Select a unique exact name match or the sole relevant organization after checking the necessary pages. If the target remains ambiguous, ask using distinguishable names and IDs only where needed. A denied or failed listing does not establish that the account has no organizations.
+4. Use accessible projects from the organization result or `projects_list` when needed. Use resource and entity tools only to obtain missing inputs; do not assume an organization ID also identifies its project, contract, album, song, or artist.
+5. For analytics, call `analytics_platforms` only when a requested platform needs a code or its availability is unclear. Preserve returned codes exactly. Analytics platform availability and release-store eligibility are different; use contract policies for the latter.
+6. Run the requested operation with the current schema. Add another view or readback only when required by the user's request, the workflow, or an uncertain outcome.
 
-## Compatibility
+## Availability and permission
 
-If the current connection exposes only `me`, `tools`, and `query`, use `query` with `{"name":"analytics_name","arguments":{...}}` for the same analysis. Do not call an unexposed tool or assume the remote server has been updated. This wrapper has the same authorization and input rules; it does not bypass a denied direct call.
+Tool annotations describe behavior; they do not grant account or project access and do not replace the user's instruction. Reads require access to the selected resource. Draft and release changes generally require editor access to the organization or project, and some artist or rights-holder operations have further restrictions. Use the current result to determine whether an operation is permitted; never elevate access, switch organizations to evade a denial, or guess from a role name that every operation is allowed.
