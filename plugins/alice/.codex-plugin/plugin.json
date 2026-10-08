@@ -1,7 +1,7 @@
 {
   "name": "alice",
-  "version": "0.4.3",
-  "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows.",
+  "version": "0.4.4",
+  "description": "ALICE helps Soundscape creators explore account, organization, and real-time analytics data and understand public workflows. Currently in invitation-only testing.",
   "author": {
     "name": "Soundscape-KKFARM"
   },
@@ -24,8 +24,8 @@
     "displayName": "ALICE by Soundscape",
     "composerIcon": "./assets/soundscape-icon.png",
     "logo": "./assets/soundscape-icon.png",
-    "shortDescription": "Soundscape creator assistant",
-    "longDescription": "ALICE currently offers account and organization lookup, real-time analytics queries, and guidance on public workflows.",
+    "shortDescription": "Soundscape creator assistant (invitation-only testing)",
+    "longDescription": "ALICE currently offers account and organization lookup, real-time analytics queries, and guidance on public workflows. ALICE is currently in invitation-only testing: anyone can install the plugin, but accounts that haven't been invited can't complete sign-in yet. From Q1 2027, ALICE will gradually open to Soundscape members.",
     "developerName": "Soundscape-KKFARM",
     "category": "Productivity",
     "capabilities": [
