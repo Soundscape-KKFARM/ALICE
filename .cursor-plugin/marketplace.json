@@ -1,0 +1,17 @@
+{
+  "name": "soundscape-net",
+  "owner": {
+    "name": "KKFARM"
+  },
+  "metadata": {
+    "description": "ALICE by Soundscape: creator workflows, analytics, and official help-center guidance. Currently in invitation-only testing."
+  },
+  "plugins": [
+    {
+      "name": "alice",
+      "source": "./plugins/alice",
+      "description": "Connect Soundscape creator workflows and analytics through ALICE MCP, with skills for authenticated tasks and public guidance.",
+      "category": "productivity"
+    }
+  ]
+}

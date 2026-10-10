@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "alice": {
+      "url": "https://rise.soundscape.net/mcp"
+    }
+  }
+}

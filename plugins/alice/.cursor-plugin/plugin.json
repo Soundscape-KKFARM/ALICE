@@ -1,0 +1,24 @@
+{
+  "name": "alice",
+  "displayName": "ALICE by Soundscape",
+  "version": "0.4.4",
+  "description": "Connects Soundscape creators to ALICE MCP for account data, release workflows, analytics, and official help-center guidance. Currently in invitation-only testing.",
+  "author": {
+    "name": "Soundscape-KKFARM"
+  },
+  "homepage": "https://soundscape.net/",
+  "repository": "https://github.com/Soundscape-KKFARM/ALICE",
+  "license": "Apache-2.0",
+  "keywords": [
+    "soundscape",
+    "mcp",
+    "music",
+    "artist",
+    "creator",
+    "analytics",
+    "support",
+    "zh-tw"
+  ],
+  "logo": "assets/soundscape-icon.svg",
+  "skills": "./skills/"
+}
