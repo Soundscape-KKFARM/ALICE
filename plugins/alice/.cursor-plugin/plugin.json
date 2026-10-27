@@ -1,7 +1,7 @@
 {
   "name": "alice",
   "displayName": "ALICE by Soundscape",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "ALICE lets Soundscape members prepare releases, submit them for Soundscape's review, get distribution and marketing guidance, and check platform performance data, updated as often as each platform reports it. ALICE is currently in invitation-only testing: anyone can install the plugin, but accounts that haven't been invited can't complete sign-in yet. From Q1 2027, ALICE will gradually open to Soundscape members who have signed a distribution agreement.",
   "author": {
     "name": "Soundscape-KKFARM"

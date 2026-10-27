@@ -1,18 +1,18 @@
 ---
 name: soundscape-alice
-description: Uses authenticated Soundscape ALICE MCP tools for account data, organizations, projects, artists, album drafts, media uploads, release and takedown requests, pitching links, and analytics. Use when the user asks to inspect or change their Soundscape data, prepare or submit a release, manage its materials, or compare music performance. Do not use for generic audio soundscapes, software development, or public help-center lookup.
+description: Uses authenticated Soundscape member MCP tools for account data, notices, organizations, artists, album drafts and versions, releases, Smart Links, uploads, support feedback, pitching, and analytics. Use when the user asks to inspect or change their Soundscape data, prepare or submit a release, manage its links or materials, contact support, or compare music performance. Do not use for generic audio soundscapes, software development, or public help-center lookup.
 ---
 
 # Soundscape ALICE
 
-Answer or carry out user-authorized Soundscape tasks with the smallest necessary set of connected ALICE tools. The current connection's tools and schemas define available operations; tool availability does not grant permission to act.
+Answer or carry out user-authorized Soundscape tasks with the smallest necessary set of member-facing ALICE tools. Use the current connection's schemas; availability does not grant permission to act or to use or describe tools outside this member workflow.
 
 ## Load only the needed reference
 
 - Read [tool-selection.md](references/tool-selection.md) before choosing or sequencing tools.
 - Read [query-contracts.md](references/query-contracts.md) for an analytics query.
-- Read [publishing-workflow.md](references/publishing-workflow.md) for album drafts, songs, release checks, submission, cancellation, takedown, or delivery status.
-- Read [resources-and-assets.md](references/resources-and-assets.md) for projects, contracts, artists, rights holders, reference codes, files, or pitching links.
+- Read [publishing-workflow.md](references/publishing-workflow.md) for album drafts, project moves, current or version songs, release checks, submission, takedown, delivery status, or album issue feedback.
+- Read [resources-and-assets.md](references/resources-and-assets.md) for projects, contracts, artists, rights holders, notices, contact links, Smart Links, short codes, reference codes, files, or pitching links.
 - Read [result-interpretation.md](references/result-interpretation.md) before interpreting results, operation status, or errors.
 - Read [connection.md](references/connection.md) only when the ALICE MCP server or authentication is unavailable.
 

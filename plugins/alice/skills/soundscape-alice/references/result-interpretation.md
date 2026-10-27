@@ -10,7 +10,8 @@
 
 ## Pages and analytics availability
 
-- `me` is a profile result; `organizations_list` is a separate page. For paginated lists, `count` is the page count, not the total. Follow `has_more` and the returned next-page `offset` when more pages are needed.
+- `me` is a profile result; `organizations_list` is a separate page. For `organizations_list`, `count` is the page count and the returned `offset` is the next-page cursor when `has_more` is true.
+- For personal and organization notices, `count` is the total; `offset` is the current page's position and is omitted at zero. When `has_more` is true, the next offset is the current offset plus the number of returned notices. Follow each other tool's schema rather than assuming these pagination meanings are universal.
 - An empty initial organization page with no further pages means no accessible active organizations were returned. An empty later page, or a denied, failed, or indeterminate listing, does not establish that the account has none. Do not treat null as an empty array unless the result contract defines that meaning.
 - If analytics returns `partial: true`, label the result incomplete and explain relevant `hints`. `exact_result_pending` means the exact result is pending and a later call may return it; `partial_data` and `stale_period` qualify the returned values. Do not invent an internal retry history or a fixed retry interval.
 - Missing dates or platforms may be omitted even without `partial: true`. Report what was returned for the selected period; do not turn missing rows into zero or claim full coverage, a last-update time, or a data source not supplied by the result.

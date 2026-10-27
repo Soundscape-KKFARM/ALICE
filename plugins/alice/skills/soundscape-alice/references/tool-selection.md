@@ -7,10 +7,19 @@ Use the ALICE tools and input schemas supplied by the current client. Visible na
 | Read the authenticated profile | `me` | `{}` |
 | Change display name or locale | `me_update` | schema-defined `body` |
 | Find accessible organizations and projects | `organizations_list` | optional `offset`, `limit` |
+| Read an organization, its songs, or request history | `organization_get`, `organization_songs_list`, `organization_request_histories_list` | selected organization and schema-defined filters |
+| Read announcements or notices | `announcements_list`, `me_notices_list`, `organization_notices_list` | pagination; selected organization for its notices |
+| Mark selected notices read | `me_notices_mark_read`, `organization_notices_mark_read` | `body.ids`; selected organization for its notices |
 | Read projects and contract release policies | `projects_list`, `project_contract_get` | selected organization and schema-defined project or contract ID |
-| Find or manage artists and rights holders | `organization_artists_list`, `organization_artist_get`, `artists_search`, `organization_artist_add`, `organization_artist_update`, `recording_rights_holders_*` | selected organization and schema-defined IDs or `body` |
+| Find or manage artists and rights holders | `organization_artists_list`, `organization_artist_get`, `artists_search`, `organization_artist_add`, `organization_artist_update`, `organization_artist_remove`, `recording_rights_holders_*` | selected organization and schema-defined IDs or `body` |
 | Prepare an album and its songs | `albums_list`, `album_get`, `album_create`, `album_draft_*`, `album_edit_start`, `album_song_*`, `album_songs_*`, `song_performer_*`, `song_contributor_*` | selected organization, entity IDs, and schema-defined inputs |
+| Read current songs or a saved album version | `album_live_songs_list`, `album_version_get`, `album_version_songs_list` | selected organization, album, and version ID where required |
+| Move an unreleased album to another project | `album_project_update` | selected album and schema-defined destination |
 | Check, submit, cancel, or track review and delivery | `album_release_*`, `song_release_check`, `album_takedown_*`, `album_request_histories_list`, `album_deliveries_list` | selected organization and album or song IDs |
+| Report an album issue | `album_issue_feedback_categories_list`, `album_issue_feedback_submit` | selected album; returned category and authorized description |
+| Get the general support page | `contact_us_get` | `{}`; returns a URL, not a submitted request |
+| Read or edit a Smart Link | `smartlink_platforms_list`, `album_smartlink_get`, `album_smartlink_update`, `album_smartlink_link_set`, `album_smartlink_link_remove`, `album_smartlink_links_reorder` | selected album; platform code, `body`, or complete order as required |
+| Read or replace an album short code | `album_short_code_get`, `album_short_code_update` | selected album; new `short_code` at the argument root |
 | Upload files or inspect media processing | exposed cover/avatar upload tools, `song_authorization_*`, `asset_upload_*`, `asset_multipart_upload_*`, `album_draft_assets_list` | selected target and schema-defined file or `body` |
 | Retrieve a pitching survey link | `pitching_plan_survey_get` | `organization_id` |
 | Discover allowed analytics platform codes | `analytics_platforms` | `organization_id` |
