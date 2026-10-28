@@ -4,13 +4,13 @@
     "name": "KKFARM"
   },
   "metadata": {
-    "description": "ALICE by Soundscape: creator workflows, analytics, and official help-center guidance. Currently in invitation-only testing."
+    "description": "ALICE by Soundscape helps members manage music distribution, from release preparation and review submission to guidance and performance tracking. Currently in invitation-only testing."
   },
   "plugins": [
     {
       "name": "alice",
       "source": "./plugins/alice",
-      "description": "Connect Soundscape creator workflows and analytics through ALICE MCP, with skills for authenticated tasks and public guidance.",
+      "description": "Prepare and submit music releases for review, get distribution guidance, and track streaming performance with ALICE.",
       "category": "productivity"
     }
   ]
